@@ -30,11 +30,11 @@ async function createTableAndAddData() {
             transcriptData.organizer_email,
             transcriptData.participants ? transcriptData.participants.join(", ") : '',  // Join participants by commas, if available
             new Date(transcriptData.date).toLocaleString(),  // Formatting date as string
-            // transcriptData.speakers.name.join(", "),  
-            // transcriptData.summary.keywords.join(", "),  
-            // transcriptData.summary.overview,  
-            // transcriptData.summary.bullet_gist,  
-            // transcriptData.summary.short_summary,  
+            transcriptData.speakers.name.join(", "),  
+            transcriptData.summary.keywords.join(", "),  
+            transcriptData.summary.overview,  
+            transcriptData.summary.bullet_gist,  
+            transcriptData.summary.short_summary,  
         ]
     ];
 
@@ -61,9 +61,9 @@ async function createTableAndAddData() {
     }
 }
 
-// module.exports = {
-//     createTableAndAddData,
-// };
+module.exports = {
+    createTableAndAddData,
+};
 
 // Call the function
-createTableAndAddData();
+// createTableAndAddData();
