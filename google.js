@@ -5,7 +5,7 @@ const { getStoredTranscript } = require("./index2");
 require("dotenv").config();
 
 // Load your service account credentials
-const credentials = require('./credentials-google.json'); // Replace with your JSON key file
+const credentials = require('./google.json'); // Replace with your JSON key file
 
 // Authenticate using the service account
 const auth = new google.auth.GoogleAuth({
