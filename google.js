@@ -20,7 +20,7 @@ async function createTableAndAddData() {
     // The ID of the Google Sheet you want to work with
     const spreadsheetId = process.env.spreadsheetId; // Replace with your Google Sheet ID
     console.log(spreadsheetId);
-
+    const transcriptData = getStoredTranscript();
     // Add data dynamically
     const data = [
         ['Meeting ID', 'Title', 'Organizer Email', 'Participants', 'Date', 'Speakers', 'Keywords', 'Overview', 'Bullet Gist', 'Short Summary'], // Header row
