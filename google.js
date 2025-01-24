@@ -5,7 +5,7 @@ const { getStoredTranscript } = require("./index2");
 require("dotenv").config();
 
 // Load your service account credentials
-const credentials = require('./google.json'); // Replace with your JSON key file
+const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS); // Replace with your JSON key file
 
 // Authenticate using the service account
 const auth = new google.auth.GoogleAuth({
@@ -38,6 +38,8 @@ async function createTableAndAddData() {
         ]
     ];
 
+
+
     try {
         // Append data to the sheet
         const response = await sheets.spreadsheets.values.append({
@@ -55,9 +57,9 @@ async function createTableAndAddData() {
     }
 }
 
-module.exports = {
-    createTableAndAddData,
-};
+// module.exports = {
+//     createTableAndAddData,
+// };
 
 // Call the function
-// createTableAndAddData();
+createTableAndAddData();
