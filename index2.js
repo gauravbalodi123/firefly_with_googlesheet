@@ -103,7 +103,7 @@ async function waitForSummary(transcriptId, interval = 10000, maxRetries = 12) {
                 typeof transcript.summary.bullet_gist === "string" && transcript.summary.bullet_gist.trim() !== "" && // Check bullet_gist is a non-empty string
                 typeof transcript.summary.short_summary === "string" && transcript.summary.short_summary.trim() !== "" // Check short_summary is a non-empty string
             ) {
-                console.log("Transcript and Summary is available:", transcript);
+                console.log("Transcript and Summary is available:");
                 return transcript;
             } else {
                 console.log("Summary not yet available, retrying...");
@@ -120,4 +120,7 @@ async function waitForSummary(transcriptId, interval = 10000, maxRetries = 12) {
 }
 
 // Export the router and any other necessary function(s)
-module.exports = router;
+module.exports = {
+    router,
+    getStoredTranscript: () => storedTranscript, // Getter function to access storedTranscript
+  };
