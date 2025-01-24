@@ -30,7 +30,7 @@ async function createTableAndAddData() {
             transcriptData.organizer_email,
             transcriptData.participants ? transcriptData.participants.join(", ") : '',  // Join participants by commas, if available
             new Date(transcriptData.date).toLocaleString(),  // Formatting date as string
-            transcriptData.speakers.map(speaker => speaker.name).join(", "),  // Join speakers by commas
+            transcriptData.speakers.join(", "),  // Join speakers by commas
             transcriptData.summary.keywords.join(", "),  // Join keywords by commas
             transcriptData.summary.overview,  // Overview
             transcriptData.summary.bullet_gist,  // Bullet Gist
@@ -38,8 +38,12 @@ async function createTableAndAddData() {
         ]
     ];
 
-
-
+    // const data = [
+    //     ['Name', 'Age', 'Email'], // Header row
+    //     ['Alice', 25, 'alice@example.com'],
+    //     ['Bob', 30, 'bob@example.com'],
+    //     ['Charlie', 22, 'charlie@example.com'],
+    //   ];
     try {
         // Append data to the sheet
         const response = await sheets.spreadsheets.values.append({
