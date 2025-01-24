@@ -1,6 +1,6 @@
 const { google } = require('googleapis');
 const fs = require('fs');
-const { getStoredTranscript } = require("./index2");
+// const { getStoredTranscript } = require("./index2");
 // const fsh = require('./credentials-google.json');
 require("dotenv").config();
 
@@ -14,13 +14,13 @@ const auth = new google.auth.GoogleAuth({
 });
 
 // Google Sheets API Client
-async function createTableAndAddData() {
+async function createTableAndAddData(transcriptData) {
     const sheets = google.sheets({ version: 'v4', auth: await auth.getClient() });
 
     // The ID of the Google Sheet you want to work with
     const spreadsheetId = process.env.spreadsheetId; // Replace with your Google Sheet ID
     console.log(spreadsheetId);
-    const transcriptData = getStoredTranscript();
+    // const transcriptData = getStoredTranscript();
     // Add data dynamically
     const data = [
         ['Meeting ID', 'Title', 'Organizer Email', 'Participants', 'Date', 'Overview', 'Bullet Gist', 'Short Summary'], // Header row

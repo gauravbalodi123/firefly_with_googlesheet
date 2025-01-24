@@ -6,6 +6,8 @@ const axios = require("axios");
 require("dotenv").config();
 const router = express.Router();
 router.use(bodyParser.json());
+const createTableAndAddData = require('./google');
+
 
 const FIRELIES_WEBHOOK_SECRET = process.env.FIRELIES_WEBHOOK_SECRET;
 const FIRELIES_API_KEY = process.env.FIRELIES_API_KEY;
@@ -36,6 +38,7 @@ router.post("/fireflies-webhook", async (req, res) => {
             const transcript = await waitForSummary(meetingId);
             storedTranscript = transcript;
             console.log("Updated storedTranscript:", storedTranscript);
+            createTableAndAddData(storedTranscript);
         } catch (error) {
             console.error("Error fetching summary:", error);
         }
