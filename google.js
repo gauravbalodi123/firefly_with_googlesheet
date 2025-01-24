@@ -61,9 +61,8 @@ async function createTableAndAddData(transcriptData) {
     }
 }
 
-module.exports = {
-    createTableAndAddData,
-};
+module.exports = { createTableAndAddData }; // Named export
+
 
 // Call the function
 // createTableAndAddData();

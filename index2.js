@@ -6,7 +6,8 @@ const axios = require("axios");
 require("dotenv").config();
 const router = express.Router();
 router.use(bodyParser.json());
-const createTableAndAddData = require('./google');
+const { createTableAndAddData } = require('./google');
+
 
 
 const FIRELIES_WEBHOOK_SECRET = process.env.FIRELIES_WEBHOOK_SECRET;
