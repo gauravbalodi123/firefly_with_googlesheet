@@ -123,4 +123,4 @@ async function waitForSummary(transcriptId, interval = 10000, maxRetries = 12) {
 module.exports = {
     router,
     getStoredTranscript: () => storedTranscript, // Getter function to access storedTranscript
-  };
+};

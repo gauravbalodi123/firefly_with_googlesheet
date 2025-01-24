@@ -55,5 +55,9 @@ async function createTableAndAddData() {
     }
 }
 
+module.exports = {
+    createTableAndAddData,
+};
+
 // Call the function
-createTableAndAddData();
+// createTableAndAddData();
