@@ -23,7 +23,7 @@ async function createTableAndAddData(transcriptData) {
     // const transcriptData = getStoredTranscript();
     // Add data dynamically
     const data = [
-        ['Meeting ID', 'Title', 'Organizer Email', 'Participants', 'Date', 'Overview', 'Bullet Gist', 'Short Summary'], // Header row
+        ['Meeting ID', 'Title', 'Organizer Email', 'Participants', 'Date','Speaker','Keywords', 'Overview', 'Bullet Gist', 'Short Summary'], // Header row
         [
             transcriptData.id,
             transcriptData.title,
@@ -31,7 +31,9 @@ async function createTableAndAddData(transcriptData) {
             transcriptData.participants ? transcriptData.participants.join(", ") : '',  // Join participants by commas, if available
             new Date(transcriptData.date).toLocaleString(),  // Formatting date as string
             // transcriptData.speakers.name.join(", "),  
-            // transcriptData.summary.keywords.join(", "),  
+            // transcriptData.summary.keywords.join(", "), 
+            transcriptData.speakers.map(speaker => speaker.name).join(", "),  // Extract names and join by comma
+            transcriptData.summary.keywords.join(", "),  
             transcriptData.summary.overview,  
             transcriptData.summary.bullet_gist,  
             transcriptData.summary.short_summary,  
